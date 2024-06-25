@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { SongContainer } from "./SongContainer";
 
-export const TrendingSong = () => {
+export const TrendingSong = ({OnHide}) => {
   return (
     <>
       <Container>
@@ -20,9 +20,8 @@ export const TrendingSong = () => {
               <i class="bi bi-fire"></i>
             </span> 
           </h1>
-          
           <Col>
-            <SongContainer />
+            <SongContainer OnHide={OnHide}  /> 
           </Col>
         </Row>
       </Container>

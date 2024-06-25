@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -9,13 +9,17 @@ import { TrendingSong } from "./TrendingSong";
 import { PlayingSong } from "../PlayingSong";
 
 const Home = () => {
+ const [displayplayingSong,setDisplayPlayingSong]= useState(false)
+ const OnHide =()=>{
+  setDisplayPlayingSong(true)
+ }
   return (
     <Container>
       <Row className="mt-5">
         <Col xs={12} md={6} className="align-self-center">
           <h1>Listen <spna className="App-name">Musifyy <i class="bi bi-balloon-heart"></i> </spna> anywhere at anytime</h1>
           <Button  size="lg" className="m-4 hero-button">
-            Large button
+            Explore
           </Button>
           <p></p>
         </Col>
@@ -27,15 +31,18 @@ const Home = () => {
         <Col md={2} className="d-flex justify-content-center">
           <div>
             <Qr />
-            <PlayingSong />
           </div>
         </Col>
         <Col md={10}>
-          <TrendingSong />
+          <TrendingSong OnHide={OnHide}  />
         </Col>
       </Row>
       <Row>
-        <Col></Col>
+        <Col>
+        <div >
+       {displayplayingSong ? <PlayingSong/> : null}
+        </div>
+        </Col>
       </Row>
     </Container>
   );
