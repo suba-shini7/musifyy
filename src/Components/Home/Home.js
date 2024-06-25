@@ -17,7 +17,7 @@ const Home = () => {
     <Container>
       <Row className="mt-5">
         <Col xs={12} md={6} className="align-self-center">
-          <h1>Listen <spna className="App-name">Musifyy <i class="bi bi-balloon-heart"></i> </spna> anywhere at anytime</h1>
+          <h1>Listen <spna className="App-name">Musifyy<i class="bi bi-balloon-heart"></i></spna>anywhere at anytime</h1>
           <Button  size="lg" className="m-4 hero-button">
             Explore
           </Button>
