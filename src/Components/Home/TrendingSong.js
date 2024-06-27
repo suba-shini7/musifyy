@@ -2,11 +2,11 @@ import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { SongContainer } from "./SongContainer";
 
-export const TrendingSong = ({OnHide}) => {
+export const TrendingSong = ({OnHide,music}) => {
   return (
     <>
       <Container>
-        <Row className="mx-5">
+        <Row className="mx-5 g-5">
           <h1
             className="text-center pb-5 trending-heading"
             style={{
@@ -20,9 +20,15 @@ export const TrendingSong = ({OnHide}) => {
               <i class="bi bi-fire"></i>
             </span> 
           </h1>
-          <Col>
-            <SongContainer OnHide={OnHide}  /> 
-          </Col>
+         
+          {music?.albums?.items?.map((e)=> {
+            return <>
+             <Col md={3} >
+            <SongContainer OnHide={OnHide} src={e.data?.coverArt?.sources[0].url}/>
+              </Col>
+            </>
+          })}       
+        
         </Row>
       </Container>
     </>

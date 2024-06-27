@@ -7,9 +7,10 @@ import { RecentlyPlayed } from "./Components/Home/RecentlyPlayed";
 import { MyWishtlist } from "./Components/MyWishtlist";
 import { Explore } from "./Components/Explore";
 import { Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [music,setMusic] =useState([])
   const getMusic = async () => {
     const url = 'https://spotify23.p.rapidapi.com/search/?q=5lfuu0un8XjAtUdxwtqjm4&type=multi&offset=0&limit=10&numberOfTopResults=5';
     const options = {
@@ -24,6 +25,8 @@ function App() {
       const response = await fetch(url, options);
       const result = await response.json();
       console.log(result);
+      setMusic(result);
+
     } catch (error) {
       console.error(error);
     }
@@ -35,7 +38,7 @@ function App() {
     <div>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Home music={music}/>}></Route>
         <Route path="recentlyplayed" element={<RecentlyPlayed />} />
         <Route path="mywishtlist" element={<MyWishtlist />} />
         <Route path="explore" element={<Explore />} />

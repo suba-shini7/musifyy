@@ -8,7 +8,7 @@ import Qr from "./Qr";
 import { TrendingSong } from "./TrendingSong";
 import { PlayingSong } from "../PlayingSong";
 
-const Home = () => {
+const Home = ({music}) => {
  const [displayplayingSong,setDisplayPlayingSong]= useState(false)
  const OnHide =()=>{
   setDisplayPlayingSong(true)
@@ -34,7 +34,7 @@ const Home = () => {
           </div>
         </Col>
         <Col md={10}>
-          <TrendingSong OnHide={OnHide}  />
+          <TrendingSong OnHide={OnHide} music={music} />
         </Col>
       </Row>
       <Row>
