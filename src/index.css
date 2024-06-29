@@ -121,7 +121,74 @@ width:100%;
 audio:nth-child(2), audio:nth-child(4), audio:nth-child(6) {
   margin: 0;
 }
-.bi{
+.song-icon{
   padding:20px 40px;
   font-size: 25px;
+  /* color: white; */
+  font-weight: bolder;
+}
+
+.animation{
+  height: 55px;
+  display: flex;
+  transform: rotate(180deg);
+  justify-content: center;
+}
+.animation span{
+  width: 10px;
+  margin: 0 5px;
+  border-radius: 6px;
+  /* background-color: #fff; */
+  animation: loader 2s infinite;
+}
+@keyframes loader{
+  0%, 100%{
+    height: 15px;
+    background: #0081C9;
+  }
+  25%{
+    height: 55px;
+    background: #FFB100;
+  }
+  50%{
+    height: 20px;
+    background: #604CC3;
+  }
+  75%{
+    height: 55px;
+    background: #FF3EA5;
+  }
+}
+.animation span:nth-child(1){
+  animation-delay: .2s;
+}
+.animation span:nth-child(2){
+  animation-delay: .4s;
+}
+.animation span:nth-child(3){
+  animation-delay: .6s;
+}
+.animation span:nth-child(4){
+  animation-delay: .8s;
+}
+.animation span:nth-child(5){
+  animation-delay: 1s;
+}
+.ps
+{
+ background: rgba(102, 47, 233, 0.4);
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4.5px );
+-webkit-backdrop-filter: blur( 4.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.ArtistSongs{
+  background-image: radial-gradient( circle 382px at 50% 50.2%,  rgb(76, 78, 199) 0.1%,#604CC3 100.2% );
+  min-height: 100vh;
+  color: white;
+}
+.bi-arrow-left-circle-fill{
+  font-size: 50px;
+  padding-left: 10%;
 }

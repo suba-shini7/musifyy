@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { SongContainer } from "./SongContainer";
 
-export const TrendingSong = ({OnHide,music}) => {
+export const TrendingSong = ({OnShow,music}) => {
   return (
     <>
       <Container>
@@ -23,8 +23,8 @@ export const TrendingSong = ({OnHide,music}) => {
          
           {music?.albums?.items?.map((e)=> {
             return <>
-             <Col md={3} >
-            <SongContainer OnHide={OnHide} src={e.data?.coverArt?.sources[0].url}/>
+             <Col md={3} xs={6} >
+            <SongContainer OnShow={()=>OnShow(e.data?.coverArt?.sources[0].url)} src={e.data?.coverArt?.sources[0].url}/>
               </Col>
             </>
           })}       

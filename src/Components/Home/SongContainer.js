@@ -1,12 +1,10 @@
 import React from 'react'
-import disk from '../../assests/vijay.jpg'
-import { PlayingSong } from '../PlayingSong'
 
-export const SongContainer = ({OnHide,src}) => {
+export const SongContainer = ({OnShow,src}) => {
   return (
     <>
     <div className='circle'>
-        <img src={src}  className='disk' onClick={()=>OnHide()}  />
+        <img src={src}  className='disk' onClick={()=>OnShow()}  />
         
     </div>
     </>
