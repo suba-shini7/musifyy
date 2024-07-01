@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import { Row, Col, Container } from "react-bootstrap";
 
-export const PlayingSong = ({ currentSongImage }) => {
+export const PlayingSong = ({ currentSongImage ,currentSong}) => {
   return (
     
     <div className="ps sticky-bottom">
@@ -25,8 +25,8 @@ export const PlayingSong = ({ currentSongImage }) => {
             <div class="container-audio">
               <audio controls loop autoplay>
                 <source
-                  src="https://spotify23.p.rapidapi.com/spotify:album:4ecrmvaAeV5JxU0JUJhTFU"
-                  type="audio/ogg"
+                  src={currentSong}
+                  type=''
                 />
               </audio>
             </div>

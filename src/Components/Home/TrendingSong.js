@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { SongContainer } from "./SongContainer";
 
-export const TrendingSong = ({OnShow,music}) => {
+export const TrendingSong = ({ OnShow, music }) => {
   return (
     <>
       <Container>
@@ -12,23 +12,30 @@ export const TrendingSong = ({OnShow,music}) => {
             style={{
               fontFamily: "revert",
               fontWeight: "bolder",
-              color: "#1C1678"
+              color: "#1C1678",
             }}
           >
             Hot on this week {""}
             <span className="fire">
               <i class="bi bi-fire"></i>
-            </span> 
+            </span>
           </h1>
-         
-          {music?.albums?.items?.map((e)=> {
-            return <>
-             <Col md={3} xs={6} >
-            <SongContainer OnShow={()=>OnShow(e.data?.coverArt?.sources[0].url)} src={e.data?.coverArt?.sources[0].url}/>
-              </Col>
-            </>
-          })}       
-        
+
+          {music?.items?.map((e) => {
+            return (
+              <>
+                <Col md={3} xs={6}>
+                  <SongContainer
+                    OnShow={() =>
+                      OnShow(e.track?.album?.images[0]?.url,e.track?.preview_url)
+                    }
+                    src={e.track?.album?.images[0]?.url}
+                    name={e.track?.name}
+                  />
+                </Col>
+              </>
+            );
+          })}
         </Row>
       </Container>
     </>

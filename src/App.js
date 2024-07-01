@@ -15,7 +15,7 @@ function App() {
  
   const getMusic = async () => {
     const url =
-      "https://spotify23.p.rapidapi.com/search/?q=tamil%20songs&type=multi&offset=0&limit=20&numberOfTopResults=20";
+      "https://spotify23.p.rapidapi.com/playlist_tracks/?id=37i9dQZF1DX4Wsb4d7NKfP&offset=0&limit=100";
     const options = {
       method: "GET",
       headers: {
@@ -37,12 +37,15 @@ function App() {
     getMusic();
   }, []);
 
-  const [music, setMusic] = useState([]);
+  const [music, setMusic] = useState(null);
   const [currentSongImage, setCurrentSongImage] = useState("");
+  const [currentSong, setCurrentSong] = useState("");
   const [displayplayingSong, setDisplayPlayingSong] = useState(false);
-  const OnShow = (url) => {
+  const OnShow = (url,songurl) => {
     setDisplayPlayingSong(true);
     setCurrentSongImage(url);
+    setCurrentSong(songurl)
+
   };
   const [selectedPlaylistSong, setselectedPlaylistSong] = useState(false);
   const onPlaylistArtist = () => {
@@ -76,10 +79,13 @@ function App() {
           }
         />
       </Routes>
+
       {displayplayingSong ? (
         <PlayingSong
           currentSongImage={currentSongImage}
           setCurrentSongImage={setCurrentSongImage}
+          currentSong={currentSong}
+          // src={}
         />
       ) : null}
     </div>
