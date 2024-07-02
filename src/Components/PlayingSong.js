@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import { Row, Col, Container } from "react-bootstrap";
 
-export const PlayingSong = ({ currentSongImage ,currentSong}) => {
+export const PlayingSong = ({ currentSongImage ,currentSong,audioref}) => {
   return (
     
     <div className="ps sticky-bottom">
@@ -23,13 +23,14 @@ export const PlayingSong = ({ currentSongImage ,currentSong}) => {
           </Col>
           <Col md={10}>
             <div class="container-audio">
-              <audio controls loop autoplay>
+              <audio controls ref={audioref}> 
                 <source
-                  src={currentSong}
-                  type=''
+                  src={currentSong} 
+                  type='audio/mpeg'
                 />
               </audio>
             </div>
+            {console.log("helo")}
             <Col md={10} className="text-center">
               <i class="bi bi-heart song-icon"></i>
               <i class="bi bi-skip-backward song-icon"></i>

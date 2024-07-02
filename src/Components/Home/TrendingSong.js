@@ -21,16 +21,16 @@ export const TrendingSong = ({ OnShow, music }) => {
             </span>
           </h1>
 
-          {music?.items?.map((e) => {
+          {music?.tracks?.items?.map((e) => {
             return (
               <>
                 <Col md={3} xs={6}>
                   <SongContainer
                     OnShow={() =>
-                      OnShow(e.track?.album?.images[0]?.url,e.track?.preview_url)
+                      OnShow(e.album?.images[0]?.url,e.preview_url)
                     }
-                    src={e.track?.album?.images[0]?.url}
-                    name={e.track?.name}
+                    src={e.album?.images[0]?.url}
+                    name={e.name}
                   />
                 </Col>
               </>

@@ -11,13 +11,13 @@ export const Explore = ({ music, onPlaylistArtist, selectedPlaylistSong ,backCli
       {selectedPlaylistSong ? <PlaylistSongs backClick={backClick} /> :
        <Container>
         <Row>
-          {music?.items?.map((e) => {
+          {music?.tracks?.items?.map((e) => {
             return (
               <>
                 <Col md={3} xs={6}>
                   <ExploreCard
-                    src={e.track?.album?.images[1]?.url}
-                    name={e.track?.artists[0]?.name}
+                    src={e.album?.images[1]?.url}
+                    name={e.album?.artists[0].name}
                     onPlaylistArtist={onPlaylistArtist}
                   />
                 </Col>

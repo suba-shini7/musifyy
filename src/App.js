@@ -7,21 +7,22 @@ import { RecentlyPlayed } from "./Components/Home/RecentlyPlayed";
 import { MyWishtlist } from "./Components/MyWishtlist";
 import { Explore } from "./Components/Explore";
 import { Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PlayingSong } from "./Components/PlayingSong";
 
-
 function App() {
- 
+  const [music, setMusic] = useState(null);  
+  const audioref=useRef(null)
+  const [currentSong, setCurrentSong] = useState(null);
+
   const getMusic = async () => {
     const url =
-      "https://spotify23.p.rapidapi.com/playlist_tracks/?id=37i9dQZF1DX4Wsb4d7NKfP&offset=0&limit=100";
-    const options = {
+      "https://v1.nocodeapi.com/subashini/spotify/TBjoIPHfzNEaaIcc/search?q=tamil&type=track";
+     var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+         const options = {
       method: "GET",
-      headers: {
-        "x-rapidapi-key": "c214c11fd1msh0f20252d7d3bc03p14ecfdjsnba10e8984f43",
-        "x-rapidapi-host": "spotify23.p.rapidapi.com",
-      },
+     headers: myHeaders,
     };
 
     try {
@@ -34,27 +35,29 @@ function App() {
     }
   };
   useEffect(() => {
+   
     getMusic();
   }, []);
 
-  const [music, setMusic] = useState(null);
   const [currentSongImage, setCurrentSongImage] = useState("");
-  const [currentSong, setCurrentSong] = useState("");
   const [displayplayingSong, setDisplayPlayingSong] = useState(false);
   const OnShow = (url,songurl) => {
     setDisplayPlayingSong(true);
     setCurrentSongImage(url);
     setCurrentSong(songurl)
-
+    if (currentSong && audioref.current) {
+      audioref.current.currentTime = 0; // Reset to the start
+      audioref.current.play(); // Start playing the new song
+    };
+   
   };
   const [selectedPlaylistSong, setselectedPlaylistSong] = useState(false);
   const onPlaylistArtist = () => {
     setselectedPlaylistSong(true);
   };
-  const backClick=()=>{
+  const backClick = () => {
     setselectedPlaylistSong(false);
-
-  }
+  };
 
   return (
     <div>
@@ -85,6 +88,7 @@ function App() {
           currentSongImage={currentSongImage}
           setCurrentSongImage={setCurrentSongImage}
           currentSong={currentSong}
+          audioref={audioref}
           // src={}
         />
       ) : null}
