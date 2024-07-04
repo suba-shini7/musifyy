@@ -1,0 +1,38 @@
+export const data =[
+   {
+    id:1,
+    song_title:"Achacho - From Aranmanai 4",
+    song_Duriation:"30",
+    Artist:"",
+    desc:"",
+    song_url:"./songs/achacho.mp3",
+    image_url:"./images/",
+    },
+    {
+        id:2,
+        song_title:"",
+        song_Duriation:"",
+        Artist:"",
+        desc:"",
+        song_url:"",
+        image_url:"",
+    },
+        {
+            id:3,
+            song_title:"",
+            song_Duriation:"",
+            Artist:"",
+            desc:"",
+            song_url:"",
+            image_url:"",
+            },
+            {
+                id:4,
+                song_title:"",
+                song_Duriation:"",
+                Artist:"",
+                desc:"",
+                song_url:"",
+                image_url:"",
+   },   
+]

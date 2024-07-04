@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { Row, Col, Container } from "react-bootstrap";
+import achchco from '../data/songs/achacho.mp3'
 
 export const PlayingSong = ({ currentSongImage ,currentSong,audioref}) => {
   return (
@@ -25,7 +26,8 @@ export const PlayingSong = ({ currentSongImage ,currentSong,audioref}) => {
             <div class="container-audio">
               <audio controls ref={audioref}> 
                 <source
-                  src={currentSong} 
+                  // src={currentSong} 
+                  src={achchco} 
                   type='audio/mpeg'
                 />
               </audio>
