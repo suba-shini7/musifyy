@@ -68,7 +68,8 @@ background: linear-gradient(to right, #FF25DB 42%, #FFDB00 100%);
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   padding:20px 20px;
-  width: 40%;
+  margin-bottom: 20px;
+  /* width: 40%; */
  }
  main{
 background-color: #FF3EA5;
@@ -81,7 +82,13 @@ color: whitesmoke;
   text-align: center;
   padding-right: 20px;
  }
-
+ .mywishtlist{
+  height: 100vh;
+color: whitesmoke;
+/* background-image: url('../src//assests/wishtlist.jpg'); */
+background-image: linear-gradient(0deg, #FF3EA5 0%, #604CC3 100%);
+padding-top: 50px;
+}
 .mywishtlist-container{
   margin: auto;
   width: 60%;
@@ -93,12 +100,7 @@ color: whitesmoke;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   padding:20px 20px; 
 }
-.mywishtlist{
-  height: 100vh;
-color: whitesmoke;
-background-image: url('../src//assests/wishtlist.jpg');
-padding-top: 50px;
-}
+
 .cardhover{
   transition: transform 0.5s;
 }
@@ -191,4 +193,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .bi-arrow-left-circle-fill{
   font-size: 50px;
   padding-left: 10%;
+}
+.Linkstyle{
+  text-decoration: none !important;
 }

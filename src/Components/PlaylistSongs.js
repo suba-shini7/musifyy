@@ -1,34 +1,45 @@
-import React from 'react'
-import song from '../../src/assests/vijay.jpg'
+import React from "react";
+import { Row, Col, Container } from "react-bootstrap";
 
-export const PlaylistSongs = ({backClick}) => {
+
+export const PlaylistSongs = ({ song, name, src, artist ,unLike,isSongInWishlist}) => {
+
   return (
-    <div className='ArtistSongs'>
-      <i class="bi bi-arrow-left-circle-fill" onClick={()=>backClick()}></i>
-    <div className="mywishtlist-container d-flex  justify-content-between align-items-center">
-    
-      <div>
-        <img
-          src={song}
-          width={150}
-          height={150}
-          style={{ borderRadius: "10px" }}
-        />
-      </div>
-      <div style={{fontFamily:"inherit"}}>
-        <h3 >Life of Ram</h3>
-        <p>Pradeep Kumar</p>
-        <audio   controls="true">
-          <source src="horse.ogg" type="audio/ogg" />
-          <source src="horse.mp3" type="audio/mpeg" />
-        </audio>
-      </div>
-      <div>
-      <i class="bi bi-heart song-icon"></i>
-      </div>
+    <div>
+      <Container className="recently-played-container">
+        <Row>
+          <Col md={4} xs={4} sm={2} className="text-center">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/${src}`}
+              height={100}
+              width={100}
+              style={{ borderRadius: "10px" }}
+            />
+          </Col>
+          <Col xs={7}>
+            {/* <div style={{ fontFamily: "inherit" }}> */}
+            <h3>{name}</h3>
+            <p>{artist}</p>
+            <audio controls="true">
+              <source
+                src={`${process.env.PUBLIC_URL}/songs/${song}`}
+                type="audio/mpeg"
+              />
+            </audio>
+            {/* </div> */}
+          </Col>
+          <Col
+            md={2}
+            xs={1}
+            sm={2}
+            className=" d-flex justify-content-center align-items-center"
+          > <i 
+          className={isSongInWishlist(name) ? 'bi bi-heart-fill':'bi bi-heart'} 
+          onClick={()=>unLike(name)}>
+        </i>
+          </Col>
+        </Row>
+      </Container>
     </div>
-    
-  
-    </div>
-  )
-}
+  );
+};
