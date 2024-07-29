@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import { PlayingSong } from "./Components/PlayingSong";
 import { data } from "./data/data";
 import { useState, useRef } from "react";
+import Footer from "./Components/Footer";
 
 function App() {
   const audioref = useRef(new Audio());
@@ -114,6 +115,7 @@ function App() {
           descrption={descrption}
         />
       ) : null}
+      <Footer/>
     </div>
   );
 }
